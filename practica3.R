@@ -53,4 +53,37 @@ desv_estans_2 <- sqrt(sum((numArtefactos_int - media_numArtefactos_int)^2) / (lo
 desv_estans_2 #otra manera de calcular la desviación estándar es hacerlo a mano usando la fórmula de desviación estándar, donde incluimos la media del vector y su longitud.
 #ambos dan el mismo resultado: 30.44836
 
-#Ejercicio 11: 
+#Ejercicio 11: ¿En qué se diferencia la desviación estándar de la varianza?
+#La varianza y la desviación estándar son dos medidas de dispersión utilizadas comúnmente en estadística para describir la variabilidad de un conjunto de datos.
+#la principal diferencia entre la varianza y la desviación estándar es que la varianza se expresa en unidades al cuadrado, mientras que la desviación estándar se expresa en las mismas unidades que los datos originales. Además, la desviación estándar es una medida más intuitiva de la variabilidad de los datos porque se encuentra en la misma escala que los datos originales.
+
+#Ejercicio 12: 12.Visualiza gráficamente de manera horizontal la dispersión del objeto ‘numArtefactos_int’.
+boxplot(numArtefactos_int, horizontal = TRUE) #con 'bloxplot' podemos crear un gráfico de dispersión, y marcando 'horiz = TRUE' lo tendremos de manera horizontal
+
+#Ejercicio 13: Crea un vector llamado ‘vector3’
+vector3 <- c(21, 45, 33, 98, 34, 90, 67, 87, 45, 11, 73, 38, 28, 15, 50, 57, 12, 87, 29, 1)
+
+#Ejercicio 14: 14.Calcula el coeficiente de variación de los objetos: 1)‘numArtefactos_int’ y 2)‘vector3’. Emplea 2 funciones para su cálculo. Compara e interpreta los resultados.
+desvest_numArtefactos_int <- sd(numArtefactos_int)#calcular la desviacion estandar
+desvest_vector3 <- sd(vector3)
+media_numArtefactos_int <- mean(numArtefactos_int)#calcular la media de los vectores
+media_vector3 <- mean(vector3)
+coefvar_numArtefactos_int <- (desvest_numArtefactos_int / media_numArtefactos_int) *100
+coefvar_vector3 <- (desvest_vector3 / media_vector3) *100 #calcular el coeficiente de variación
+
+#Ejercicio 15: Genera una tabla-resumen de los estadísticos descriptivos expuestos: media, mediana, desviación estándar etc.
+summary(media_numArtefactos_int)
+summary(media_vector3)
+summary(mediana_numArtefactos_int)
+summary(desvest_numArtefactos_int) #con la función 'summary' podemos obetner estadísticas descriptivas básicas
+
+#Ejercicio 16: 
+library(e1071) #cargamos el paquete
+skewness(vector3) #con 'skewness' podemos calcular el coeficiente de asimetría del vector: 0.3138528
+#Si el valor es positivo, significa que la distribución tiene una cola hacia la derecha (es decir, está sesgada hacia la derecha), mientras que si el valor es negativo, significa que la distribución tiene una cola hacia la izquierda (es decir, está sesgada hacia la izquierda). Un valor cercano a cero indica que la distribución es aproximadamente simétrica.
+
+#Ejercicio 17: 
+library(e1071) #cargamos el paquete
+kurtosis(vector3) #con la función 'kurtosis' podemos calcular la curtosis el vector: -1.237981
+#Un valor negativo indica que la distribución es platicúrtica (aplanada) en comparación con una distribución normal. Un valor positivo indica que la distribución es leptocúrtica (puntiaguda) en comparación con una distribución normal. Un valor cercano a cero indica que la distribución tiene una forma similar a una distribución normal. 
+
